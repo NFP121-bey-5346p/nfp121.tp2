@@ -24,51 +24,64 @@ package question1;
  *          engagements, et suivi d'un appel à tearDown(), qui les détruit.
  */
 public class FahrenheitCelsiusTest extends junit.framework.TestCase {
-	// Définissez ici les variables d'instance nécessaires à vos engagements;
-	// Vous pouvez également les saisir automatiquement du présentoir
-	// à l'aide du menu contextuel "Présentoir --> Engagements".
-	// Notez cependant que ce dernier ne peut saisir les objets primitifs
-	// du présentoir (les objets sans constructeur, comme int, float, etc.).
+    // Définissez ici les variables d'instance nécessaires à vos engagements;
+    // Vous pouvez également les saisir automatiquement du présentoir
+    // à l'aide du menu contextuel "Présentoir --> Engagements".
+    // Notez cependant que ce dernier ne peut saisir les objets primitifs
+    // du présentoir (les objets sans constructeur, comme int, float, etc.).
 
-	/**
-	 * Constructeur de la classe-test FahrenheitCelsiusTest
-	 */
-	public FahrenheitCelsiusTest() {
-	}
+    /**
+     * Constructeur de la classe-test FahrenheitCelsiusTest
+     */
+    public FahrenheitCelsiusTest() {
+    }
 
-	/**
-	 * Met en place les engagements.
-	 * 
-	 * Méthode appelée avant chaque appel de méthode de test.
-	 */
-	protected void setUp() // throws java.lang.Exception
-	{
-		// Initialisez ici vos engagements
+    /**
+     * Met en place les engagements.
+     * 
+     * Méthode appelée avant chaque appel de méthode de test.
+     */
+    protected void setUp() // throws java.lang.Exception
+    {
+        // Initialisez ici vos engagements
 
-	}
+    }
 
-	/**
-	 * Supprime les engagements
-	 * 
-	 * Méthode appelée après chaque appel de méthode de test.
-	 */
-	protected void tearDown() // throws java.lang.Exception
-	{
-		// Libérez ici les ressources engagées par setUp()
-	}
+    /**
+     * Supprime les engagements
+     * 
+     * Méthode appelée après chaque appel de méthode de test.
+     */
+    protected void tearDown() // throws java.lang.Exception
+    {
+        // Libérez ici les ressources engagées par setUp()
+    }
 
-	/**
-	 * Il ne vous reste plus qu'à définir une ou plusieurs méthodes de test. Ces
-	 * méthodes doivent vérifier les résultats attendus à l'aide d'assertions
-	 * assertTrue(<boolean>). Par convention, leurs noms devraient débuter par
-	 * "test". Vous pouvez ébaucher le corps grâce au menu contextuel
-	 * "Enregistrer une méthode de test".
-	 */
-	public void test_fahrenheitEnCelsius() {
-		assertEquals("    0 °F -> -17.7 °C ? ", -17.7, question1.FahrenheitCelsius.fahrenheitEnCelsius(0), 0.1);
-		assertEquals("  100 °F -> 37.7 °C ? ", 37.7, question1.FahrenheitCelsius.fahrenheitEnCelsius(100), 0.1);
-		assertEquals(" 2000 °F -> 1093.3 °C ?", 1093.3, question1.FahrenheitCelsius.fahrenheitEnCelsius(2000), 0.1);
-		assertEquals("   54 °F -> 12.2 °C ?", 12.2, question1.FahrenheitCelsius.fahrenheitEnCelsius(54), 0.1);
-	}
-	
-}
+    /**
+     * Il ne vous reste plus qu'à définir une ou plusieurs méthodes de test. Ces
+     * méthodes doivent vérifier les résultats attendus à l'aide d'assertions
+     * assertTrue(<boolean>). Par convention, leurs noms devraient débuter par
+     * "test". Vous pouvez ébaucher le corps grâce au menu contextuel
+     * "Enregistrer une méthode de test".
+     */
+    public void test_fahrenheitEnCelsius() {
+        assertEquals("    0 °F -> -17.7 °C ? ", -17.7, question1.FahrenheitCelsius.fahrenheitEnCelsius(0), 0.1);
+        assertEquals("  100 °F -> 37.7 °C ? ", 37.7, question1.FahrenheitCelsius.fahrenheitEnCelsius(100), 0.1);
+        assertEquals(" 2000 °F -> 1093.3 °C ?", 1093.3, question1.FahrenheitCelsius.fahrenheitEnCelsius(2000), 0.1);
+        assertEquals("   54 °F -> 12.2 °C ?", 12.2, question1.FahrenheitCelsius.fahrenheitEnCelsius(54), 0.1);
+    }
+    
+    //  test grandes valeurs  
+    public void test_FC_grandes() {
+        assertEquals("   5432167°F -> 3017853.0°C ? ", 3017853.0, question1.FahrenheitCelsius.fahrenheitEnCelsius(5432167), 0.1);
+        assertEquals("    9543216°F -> 5301769.0°C ? ", 5301769.0, question1.FahrenheitCelsius.fahrenheitEnCelsius(9543216), 0.1);
+    }
+    
+    //  test valeurs négatifs
+    public void test_FC_negatifs() {
+        assertEquals("    -240°F -> -151.1°C ? ", -151.1, question1.FahrenheitCelsius.fahrenheitEnCelsius(-240), 0.1);
+        assertEquals("    -180°F -> -117.7°C ? ", -117.7, question1.FahrenheitCelsius.fahrenheitEnCelsius(-180), 0.1);
+    }
+        
+}    
+
